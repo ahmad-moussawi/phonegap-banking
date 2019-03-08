@@ -12,18 +12,23 @@
         content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Banking App</title>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 
 <body>
 
     <placeholder>
-        <page name="home" class="active"></page>
-        <page name="account-list"></page>
+        <page label="Home" name="home" class="active"></page>
+        <page label="Accounts" name="account-list"></page>
         <page name="account-viewer"></page>
+        <page label="About" name="about"></page>
     </placeholder>
 
+    <footer id="bottom-footer">
+
+    </footer>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
 

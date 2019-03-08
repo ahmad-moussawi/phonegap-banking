@@ -20,7 +20,8 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-vibration": {},
       "cordova-plugin-flashlight": {},
-      "cordova-sms-plugin": {}
+      "cordova-sms-plugin": {},
+      "cordova-plugin-whitelist": {}
     }
   },
   "dependencies": {
@@ -39,6 +40,7 @@
     "cordova-plugin-media-capture": "~1.4.3",
     "cordova-plugin-network-information": "~1.3.3",
     "cordova-plugin-vibration": "~2.1.5",
+    "cordova-plugin-whitelist": "1.3.3",
     "cordova-sms-plugin": "1.0.0"
   }
 }

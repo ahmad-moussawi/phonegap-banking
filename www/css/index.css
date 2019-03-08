@@ -75,3 +75,28 @@ header .btn {
     margin-left: 30px;
     font-size: 25px;
 }
+
+
+#bottom-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: #d2d2d2;
+    padding: 10px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#bottom-footer a {
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+#bottom-footer a.active {
+    font-weight: bold;
+}
