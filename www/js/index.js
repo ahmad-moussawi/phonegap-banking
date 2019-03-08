@@ -64,10 +64,22 @@ loadViews(views).then(function () {
         var $page = $(page);
 
         var label = $page.attr('label');
-        var cssClass = $page.hasClass('active') ? 'active' : '';
         var name = $page.attr('name');
 
-        $('#bottom-footer').append('<a onclick="go(\'' + name + '\')" class="' + cssClass + '">' + label + '</a>');
+        // another way
+        // var cssClass = $page.hasClass('active') ? 'active' : '';
+        // var $button = $('<a id="nav-' + name + '" onclick="go(\'' + name + '\')" class="' + cssClass + '">' + label + '</a>');
+
+        var $button = $('<a/>')
+            .attr('id', 'nav-' + name)
+            .attr('onclick', "go('" + name + "')")
+            .html(label);
+
+        if ($page.hasClass('active')) {
+            $button.addClass('active');
+        }
+
+        $('#bottom-footer').append($button);
     });
 
     $('.date').html(new Date())
@@ -78,8 +90,39 @@ loadViews(views).then(function () {
 
 // listen to navigate event
 $placeholder.on('navigate', function (event, view) {
-    if(view === 'about')
-    {
+
+    $('#bottom-footer a').removeClass('active');
+    $('#nav-' + view).addClass('active');
+
+    if (view === 'about') {
         $('.date').html(new Date());
     }
+
+    if (view === 'account-list') {
+        AccountsService.accounts()
+            .then(function (accounts) {
+
+                console.log(accounts);
+
+                $('#account-list').empty();
+
+                accounts.forEach(function (account) {
+
+                    var $item = $('<div class="item">\
+        <div class="item-account-row-1">\
+            <div class="account-name">' + account.name + '</div>\
+            <div class="account-balance">' + account.currency + ' ' + account.balance + '</div>\
+        </div>\
+        <div class="account-number">' + account.number + '</div>\
+        <div class="account-activity">Last activity on ' + account.last_activity + '</div>\
+    </div>');
+
+
+                    $('#account-list').append($item);
+                });
+
+            })
+    }
+
+
 });
